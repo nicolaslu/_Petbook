@@ -1,0 +1,18 @@
+all_photos:
+    pattern:  /photo
+    defaults: { _controller: SocialPhotoBundle:Photo:index }
+sup_photos:
+    pattern:  /sup/{id}/{type}
+    defaults: { _controller: SocialPhotoBundle:Photo:sup }
+add_message:
+    pattern:  /message/{name}
+    defaults: { _controller: SocialPhotoBundle:Photo:message }
+all_photos_par_album:
+    pattern:  /photo/{name}
+    defaults: { _controller: SocialPhotoBundle:Photo:all }
+add_photos:
+    pattern:  /addphoto
+    defaults: { _controller: SocialPhotoBundle:Photo:add }
+create_album:
+    pattern:  /createalbum
+    defaults: { _controller: SocialPhotoBundle:Photo:createalbum }

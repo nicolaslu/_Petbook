@@ -1,0 +1,44 @@
+{# src/Social/WallBundle/Resources/views/layout.html.twig  #}
+
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+
+	<div class="span7 offset-8" >
+	
+	
+		<ul class="nav nav-pills">
+		  <li class="active"><a href="{{ path('all_photos') }}">my photos</a></li>
+		  <li><a href="{{ path('add_photos') }}">add photos</a></li>
+		  <li><a href="{{ path('create_album') }}">create album</a></li>
+		</ul>
+    </div>
+	
+	<div class="span7 offset-8">
+			{% for photo in listePhotos %}
+					<div class="well" style="text-align:center">
+
+						<h4>{{ photo.name }}</h4>
+						<div style="text-align:right">
+							{% if app.user.id == app.session.get('pageUserId') %}
+								<a href="{{ path('sup_photos', { 'id': photo.id, 'type':'Photo' }) }}"> supp </a>
+							{% endif %}
+						</div>
+
+						<table>
+							<tr>
+								<td >
+									<img src="{{ asset('img/uploads/img/%s') |format(photo.url)}}" alt="test" style="height:200px" >
+								</td>
+								<td width="20px">
+								</td>
+								<td>
+									{{ photo.description }}
+								</td>
+								<td width="20px">
+								</td>
+						</table>
+					</div>
+			{% endfor %}
+    </div>
+{% endblock %}

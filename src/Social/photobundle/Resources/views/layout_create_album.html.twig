@@ -1,0 +1,23 @@
+{# src/Social/WallBundle/Resources/views/layout.html.twig  #}
+
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+
+	<div class="span7 offset-8" >
+		<ul class="nav nav-pills">
+		  <li><a href="{{ path('all_photos') }}">my photos</a></li>
+		  <li><a href="{{ path('add_photos') }}">add photos</a></li>
+		  <li class="active"><a href="{{ path('create_album') }}">create album</a></li>
+		</ul>
+    </div>
+	
+	<div class="span7 offset-8">
+	
+		<div class="span7 offset-8">
+    	{% block photo %}
+    		{% include "SocialPhotoBundle:Album:album.html.twig" %}
+    	{% endblock %}
+    </div>
+    </div>
+{% endblock %}

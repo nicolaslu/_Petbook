@@ -1,0 +1,27 @@
+Social\PhotoBundle\Entity\Photo:
+    type: entity
+    table: photo
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: string
+            length: 255
+        url:
+            type: string
+            length: 255
+        auteur:
+            type: integer
+        date:
+            type: datetime
+        idAlbum:
+            type: integer
+
+    lifecycleCallbacks: {  }

@@ -1,0 +1,7 @@
+parameters:
+#    social_photo.example.class: Social\PhotoBundle\Example
+
+services:
+#    social_photo.example:
+#        class: %social_photo.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
