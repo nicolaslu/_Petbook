@@ -1,0 +1,45 @@
+{% extends "SocialWallBundle::layout.html.twig" %}
+
+{% block publication %}
+  <div>
+    <form action="{{ path('wall_post') }}" class="form-horizontal" method="post"}}>
+      <fieldset>
+        <div class="form-group">
+          <div class="col-lg-10">
+            <textarea rows="3" cols="80" class="textPublish" name="textaenvoyer" placeholder="Write your message"></textarea>
+          </div>
+        </div>
+      </br>
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <hr>
+      {% for item in publication %}
+        <form action="{{ path('wall_action') }}" class="form-horizontal" method="post"}}>
+          <div class="well" id="msg">
+            <div id="msg_block">
+              <p id="publication_msg" name="msg" value="{{item.texte}}">
+                {{ item.texte}}
+              </p>
+              <small>
+                écrit par <strong>{{item.idWriter}}</strong> le {{ item.date|date('d/m/Y') }} à {{ item.date|date('H:m:s') }}
+              </small>
+            </div>
+            <div id="del_block">
+              <input type="hidden" name="id" value="{{ item.id}}">
+              {% if item.idWriter == app.user.username %}
+                <input type="submit" name="submit" value="edit" id="submit-edit">
+              {% endif %}
+              {% if (app.session.get('pageUserId') == app.user.id) or (item.idWriter == app.user.username) %}
+                <input type="submit" name="submit" value="delete" id="submit-delete">
+              {% endif %}
+            </div>
+          </div>
+        </form>
+      {% endfor %}
+  </div>
+{% endblock %}

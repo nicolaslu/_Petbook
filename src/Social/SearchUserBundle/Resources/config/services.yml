@@ -1,0 +1,7 @@
+parameters:
+#    social_search_user.example.class: Social\SearchUserBundle\Example
+
+services:
+#    social_search_user.example:
+#        class: %social_search_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,35 @@
+social_search_user:
+    resource: "@SocialSearchUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+social_avatar:
+    resource: "@SocialAvatarBundle/Resources/config/routing.yml"
+    prefix:   /
+
+social_wall:
+    resource: "@SocialWallBundle/Resources/config/routing.yml"
+    prefix:   /_wall
+
+social_profile:
+    resource: "@SocialUserBundle/Resources/config/routing.yml"
+    prefix:   /_profile
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+

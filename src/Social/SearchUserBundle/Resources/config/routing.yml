@@ -1,0 +1,8 @@
+social_user_list:
+    pattern: /users
+    defaults: {_controller: SocialSearchUserBundle:Search:index}
+social_redirect:
+    pattern: /redirectUSer
+    defaults: {_controller: SocialSearchUserBundle:Search:redirect}
+    requirements:
+        _method:  POST

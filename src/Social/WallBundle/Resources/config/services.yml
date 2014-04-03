@@ -1,0 +1,7 @@
+parameters:
+#    social_wall.example.class: Social\WallBundle\Example
+
+services:
+#    social_wall.example:
+#        class: %social_wall.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

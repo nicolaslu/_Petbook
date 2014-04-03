@@ -1,0 +1,8 @@
+avatar_index:
+    pattern:  /avatar
+    defaults: { _controller: SocialAvatarBundle:Avatar:index }
+avatar_select:
+    pattern:  /select
+    defaults: {_controller: SocialAvatarBundle:Avatar:select}
+    requirements:
+        _method: POST

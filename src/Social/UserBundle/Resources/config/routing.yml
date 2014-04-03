@@ -1,0 +1,6 @@
+social_register:
+    path:     /reg
+    defaults: { _controller: SocialUserBundle:User:register}
+social_login:
+    path:     /auth
+    defaults: { _controller: SocialUserBundle:User:auth }

@@ -1,0 +1,21 @@
+wall_logged:
+    pattern: /logged
+    defaults: {_controller: SocialWallBundle:Wall:index}
+wall_profile:
+    pattern: /home
+    defaults: { _controller: SocialWallBundle:Wall:home}
+wall_post:
+    requirements:
+        _method:  POST
+    pattern: /post
+    defaults: { _controller: SocialWallBundle:Wall:post}
+wall_action:
+    requirements:
+        _method:  POST
+    pattern: /action
+    defaults: {_controller: SocialWallBundle:Wall:action}
+wall_modifier:
+    requirements:
+        _method:  POST
+    pattern: /modify
+    defaults: {_controller: SocialWallBundle:Wall:modify}

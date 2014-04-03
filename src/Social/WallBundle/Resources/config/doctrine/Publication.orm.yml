@@ -1,0 +1,20 @@
+Social\WallBundle\Entity\Publication:
+    type: entity
+    table: null
+    repositoryClass: Social\WallBundle\Entity\PublicationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        texte:
+            type: text
+        idUser:
+            type: integer
+        idWriter:
+            type: string
+        date:
+            type: datetime
+    lifecycleCallbacks: {  }

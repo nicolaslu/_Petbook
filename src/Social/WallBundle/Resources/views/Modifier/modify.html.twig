@@ -1,0 +1,22 @@
+{% extends "SocialWallBundle::layout.html.twig" %}
+
+
+{% block publication %}
+  <form action="{{ path('wall_modifier') }}" class="form-horizontal" method="post"}}>
+    <fieldset>
+        <div class="form-group">
+          <div class="col-lg-10">
+            <textarea rows="3" cols="80" class="textPublish" name="textaenvoyer">{{ msg.texte}}</textarea>
+          </div>
+        </div>
+      </br>
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <button type="submit" name="submit" value="Annuler" class="btn btn-primary">Annuler</button>
+            <button type="submit" name="submit" value="Valider" class="btn btn-primary">Valider</button>
+            <input type="hidden" name="id" value="{{ msg.id}}">
+          </div>
+        </div>
+      </fieldset>
+  </form>
+{% endblock %}
