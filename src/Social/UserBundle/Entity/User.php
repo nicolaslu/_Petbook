@@ -34,6 +34,7 @@ class User extends BaseUser
         // your own logic
 		$this->friendsWithMe = new \Doctrine\Common\Collections\ArrayCollection();
         $this->myFriends = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->path=' ';
     }
 
     /**

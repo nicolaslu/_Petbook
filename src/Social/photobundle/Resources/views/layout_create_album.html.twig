@@ -6,9 +6,11 @@
 
 	<div class="span7 offset-8" >
 		<ul class="nav nav-pills">
-		  <li><a href="{{ path('all_photos') }}">my photos</a></li>
-		  <li><a href="{{ path('add_photos') }}">add photos</a></li>
-		  <li class="active"><a href="{{ path('create_album') }}">create album</a></li>
+		  	<li><a href="{{ path('all_photos') }}">my photos</a></li>
+		  	{% if app.user.id == app.session.get('pageUserId') %}
+		  		<li><a href="{{ path('add_photos') }}">add photos</a></li>
+		  		<li class="active"><a href="{{ path('create_album') }}">create album</a></li>
+	  		{% endif %}
 		</ul>
     </div>
 	

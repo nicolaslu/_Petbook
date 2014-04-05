@@ -225,7 +225,7 @@ class Photo
 	public function getUploadDir()
 	{
 		// On retourne le chemin relatif vers l'image pour un navigateur
-		return 'img/uploads/img';
+		return 'img/uploads';
 	}
 
 	protected function getUploadRootDir()

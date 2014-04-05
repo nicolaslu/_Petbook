@@ -92,6 +92,29 @@ class PhotoController extends Controller
             return $this->redirect($this->generateUrl('social_login'));  
         }
     }
+
+	public function oneAction($id)
+    {
+        $securityContext = $this->container->get('security.context');
+        if( $securityContext->isGranted('IS_AUTHENTICATED_FULLY'))
+        {
+            
+            $userId = $securityContext->getToken()->getUser()->getId();
+            if(isset($userId))
+            {
+                
+					$photo = $this->getDoctrine()
+					->getManager()
+					->find('SocialPhotoBundle:Photo', $id);
+			}
+			return $this->render('SocialPhotoBundle::layout_photo.html.twig', array('photo' => $photo));
+
+        }
+        else
+        {
+            return $this->redirect($this->generateUrl('social_login'));  
+        }
+    }
 	
 	public function messageAction($name)
     {

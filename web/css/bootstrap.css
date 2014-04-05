@@ -6242,8 +6242,8 @@ a.badge:focus {
 
 #submit-view{
   background:url(../img/view.png) center no-repeat;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
   color: transparent;
   border:0;
@@ -6256,8 +6256,8 @@ a.badge:focus {
 }
 
 #avatarListe{
-  height: 100px;
-  width: 100px;
+  height: 75px;
+  width: 75px;
   margin: auto;
 }
 
@@ -6273,3 +6273,28 @@ a.badge:focus {
   width:50%;
   margin:auto;
 }
+
+.nkhome img {
+    height : 110px;
+  margin : 10px;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+}
+.nkhome img:hover {
+  opacity:0.4;
+    height : 110px;
+}
+
+#photo_action{
+  margin-left: 72%;
+}
+
+#pseudo{
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+}
+
+table tbody { height:100%; overflow-y:scroll; }
+table thead { display:block; }

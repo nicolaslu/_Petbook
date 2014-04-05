@@ -11,7 +11,7 @@ class UserController extends Controller
     	$securityContext = $this->container->get('security.context');
     	if( $securityContext->isGranted('IS_AUTHENTICATED_FULLY'))
         {
-        	return $this->redirect($this->generateUrl('wall_profile'));
+        	return $this->redirect($this->generateUrl('wall_logged'));
         }
         else
         {
@@ -24,7 +24,7 @@ class UserController extends Controller
         $securityContext = $this->container->get('security.context');
         if( $securityContext->isGranted('IS_AUTHENTICATED_FULLY'))
         {
-            return $this->redirect($this->generateUrl('wall_profile'));
+            return $this->redirect($this->generateUrl('wall_logged'));
         }
         else
         {

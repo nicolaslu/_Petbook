@@ -1,6 +1,9 @@
 all_photos:
     pattern:  /photo
     defaults: { _controller: SocialPhotoBundle:Photo:index }
+a_photo:
+    pattern: /photo:{id}
+    defaults: {_controller: SocialPhotoBundle:Photo:one}
 sup_photos:
     pattern:  /sup/{id}/{type}
     defaults: { _controller: SocialPhotoBundle:Photo:sup }

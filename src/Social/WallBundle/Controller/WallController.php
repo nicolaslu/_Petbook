@@ -27,9 +27,10 @@ class WallController extends Controller
                 }
                 // On récupère la liste des publication du mur de l'utilisateur
                 $res = $em->getRepository('SocialWallBundle:Publication')
-                             ->findBy(array('idUser' => $userId ), array('date' => 'desc')); 
+                             ->findBy(array('idUser' => $userId ), array('date' => 'desc'));
             }
             return $this->render('SocialWallBundle:Publication:publication.html.twig', array('publication' => $res));
+            
         }
         else
         {
@@ -159,6 +160,29 @@ class WallController extends Controller
             }     
             return $this->redirect($this->generateUrl('wall_profile'));
         }   
+        else
+        {
+            return $this->redirect($this->generateUrl('social_login'));  
+        }
+    }
+
+    public function oneAction($id)
+    {
+        $securityContext = $this->container->get('security.context');
+        if( $securityContext->isGranted('IS_AUTHENTICATED_FULLY'))
+        {
+            
+            $userId = $securityContext->getToken()->getUser()->getId();
+            if(isset($userId))
+            {
+                
+                    $photo = $this->getDoctrine()
+                    ->getManager()
+                    ->find('SocialPhotoBundle:Photo', $id);
+            }
+            return $this->render('SocialPhotoBundle::layout_photo.html.twig', array('photo' => $photo));
+
+        }
         else
         {
             return $this->redirect($this->generateUrl('social_login'));  

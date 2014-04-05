@@ -24,7 +24,9 @@
 						<h4><a href="{{ path('all_photos') }}/{{ album.id }}"> {{ album.name }} </a> </h4>
 					
 						<div style="text-align:right">
-							<a href="{{ path('sup_photos', { 'id': album.id, 'type':'Album' }) }}"> supp </a>
+							{% if app.user.id == app.session.get('pageUserId') %}
+								<a href="{{ path('sup_photos', { 'id': album.id, 'type':'Album' }) }}"> supp </a>
+							{% endif %}
 						</div>
 					</div>
 			{% endfor %}

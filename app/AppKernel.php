@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Social\WallBundle\SocialWallBundle(),
             new Social\AvatarBundle\SocialAvatarBundle(),
             new Social\SearchUserBundle\SocialSearchUserBundle(),
+            new Social\PhotoBundle\SocialPhotoBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

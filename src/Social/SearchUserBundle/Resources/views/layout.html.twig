@@ -6,16 +6,10 @@
 	<table class="table table-striped table-hover " id="tableUser">
 	  <tbody>
 	  	{% for item in users %}
-		  	<form action="{{path('social_redirect')}}" method="POST">
-			    <tr>
-			      <td valign="middle" width="50%"><img src="{{asset('img/avatar/%s') | format( item.path)}}" alt="avatar" id="avatarListe"/></td>
-			      <td valign="middle" width="50%"><strong>{{item.username}}</strong></td>
-			      <td valign="middle" width="15%"><input type="submit" name="submit" value="edit" id="submit-view"></td>
-			      <input type="hidden" name="userId" value="{{item.id}}">
-			      <input type="hidden" name="path" value="{{item.path}}">
-			      <input type="hidden" name="username" value="{{item.username}}">
-			    </tr>
-			</form>
+		    <tr>
+		      <td width="20%"><img src="{{asset('img/uploads/%s') | format( item.path)}}" alt="avatar" id="avatarListe"/></td>
+		      <td style="vertical-align:middle" width="20%"><a href="{{ path('social_redirect', {'id': item.id, 'path':item.path, 'username': item.username})}}" id="pseudo">{{item.username}}</a></td>
+		    </tr>
 		{% endfor %}
 	  </tbody>
 	</table> 

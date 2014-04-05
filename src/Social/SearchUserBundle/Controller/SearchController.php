@@ -13,7 +13,7 @@ class SearchController extends Controller
         {
         	if(isset($_POST['searchType']))
         	{
-        		$term = $_POST['searchType'].'%';
+        		$term = '%'.$_POST['searchType'].'%';
         		$em = $this->getDoctrine()->getEntityManager();
         		$result = $em->getRepository('SocialUserBundle:User')->createQueryBuilder('o')
 					   ->where('o.username LIKE :term')
@@ -33,21 +33,15 @@ class SearchController extends Controller
         }
     }
 
-    public function redirectAction()
+    public function redirectAction($id, $path, $username)
     {
     	$securityContext = $this->container->get('security.context');
     	if( $securityContext->isGranted('IS_AUTHENTICATED_FULLY'))
         {
-        	if(isset($_POST['userId']) && isset($_POST['path']) && isset($_POST['username']))
-        	{
-        		$id = $_POST['userId'];
-        		$path = $_POST['path'];
-        		$username = $_POST['username'];
-        		$session = $this->getRequest()->getSession();
-		        $session->set('pageUserId', $id);
-		        $session->set('username', $username);
-		        $session->set('path', $path);
-			}
+    		$session = $this->getRequest()->getSession();
+	        $session->set('pageUserId', $id);
+	        $session->set('username', $username);
+	        $session->set('path', $path);
 			return $this->redirect($this->generateUrl('wall_profile'));
         }
         else
