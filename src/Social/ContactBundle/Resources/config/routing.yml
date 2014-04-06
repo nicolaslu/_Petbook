@@ -1,3 +1,9 @@
-social_contact_homepage:
-    pattern:  /hello/{name}
+social_contact_list:
+    pattern:  /
     defaults: { _controller: SocialContactBundle:Default:index }
+
+social_contact_list_add:
+    requirements:
+        _method: GET
+    pattern: /add
+    defaults: { _controller: SocialContactBundle:Default:add }

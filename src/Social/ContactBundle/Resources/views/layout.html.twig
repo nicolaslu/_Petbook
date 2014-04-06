@@ -1,0 +1,19 @@
+{# src/Social/ContactBundle/Resources/views/layout.html.twig  #}
+
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+	<div class="span7" id="block_publish">
+		<h2>Contact list</h2>
+		{% if message is defined %}{{ message }} {% endif %}
+    	{% block add_contact_field %}
+		<form method="GET" action="{{ path('social_contact_list_add') }}">
+    		<input type="text" id="add_contact_field" class="input-block-level" /><input type="submit" class="btn btn-primary" value="Add contact"/>			
+		</form>
+    	{% endblock %}
+		<hr>
+		{% block contact_list_block %}
+			
+		{% endblock %}
+    </div>
+{% endblock %}

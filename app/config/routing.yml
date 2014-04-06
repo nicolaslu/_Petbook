@@ -1,6 +1,6 @@
 social_contact:
     resource: "@SocialContactBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /contact_list
 
 social_photo:
     resource: "@SocialPhotoBundle/Resources/config/routing.yml"
