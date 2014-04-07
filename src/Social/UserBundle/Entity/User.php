@@ -59,4 +59,23 @@ class User extends BaseUser
 
         return $this;
     }
+
+	/* One direction friending*/
+	public function addFriend(User $friend){
+		$this->myFriends[] = $friend;
+	}
+	
+	/* One direction unfriending*/
+	public function removeMyFriend($friend)
+	{
+		$this->myFriends->removeElement($friend);
+	}
+	
+	public function isFriendWith(User $friend){
+		return $this->myFriends->contains($friend);
+	}
+	
+	public function getFriends(){
+		return $this->myFriends;
+	}
 }
