@@ -5,15 +5,21 @@
 {% block body %}
 	<div class="span7" id="block_publish">
 		<h2>Contact list</h2>
-		{% if message is defined %}{{ message }} {% endif %}
+		{% if app.request.query.get('message') is defined %}{{ app.request.query.get('message') }} {% endif %}
     	{% block add_contact_field %}
-		<form method="GET" action="{{ path('social_contact_list_add') }}">
-    		<input type="text" id="add_contact_field" class="input-block-level" /><input type="submit" class="btn btn-primary" value="Add contact"/>			
+		<form method="POST" action="{{ path('social_contact_list_add') }}">
+    		<input type="text" id="add_contact_field" name="add_contact_field" class="input-block-level" /><input type="submit" class="btn btn-primary" value="Add contact"/>			
 		</form>
     	{% endblock %}
 		<hr>
 		{% block contact_list_block %}
-			
+			{% for contact in contact_list %}
+				<div class="span4">
+					<form method="post" action="{{ path('social_contact_list_delete') }}" >
+						<img id="avatar" src="{{ contact.getPath() }}" /> <div>{{ contact.getUsername() }} </div> <div><input type="hidden" name="delete_contact_field" value="{{ contact.getId() }}" /><input type="submit" class="btn" value="Remove" /></div>
+					</form>
+				</div>
+			{% endfor %}
 		{% endblock %}
     </div>
 {% endblock %}

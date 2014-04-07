@@ -4,6 +4,12 @@ social_contact_list:
 
 social_contact_list_add:
     requirements:
-        _method: GET
+        _method: POST
     pattern: /add
     defaults: { _controller: SocialContactBundle:Default:add }
+
+social_contact_list_delete:
+    requirements:
+        _method: POST
+    pattern: /delete
+    defaults: { _controller: SocialContactBundle:Default:delete }
