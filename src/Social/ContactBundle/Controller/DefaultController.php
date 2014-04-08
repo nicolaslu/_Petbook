@@ -36,7 +36,9 @@ class DefaultController extends Controller
 					$message = "User not found";
 				}else{
 					$current_user = $repository->findOneBy(array('username'=>$session->get('username')));
-					if(!$current_user->isFriendWith($friendToBeAdded)){
+					if($current_user == $friendToBeAdded){
+						$message = "You cannot add yourself to your contact list.";
+					}elseif(!$current_user->isFriendWith($friendToBeAdded)){
 						$current_user->addFriend($friendToBeAdded);
 						$em = $this->getDoctrine()->getManager();
 						$em->persist($current_user);
